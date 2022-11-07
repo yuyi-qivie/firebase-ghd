@@ -1,8 +1,9 @@
-// import firebase from "firebase";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore/lite";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import "firebase/compat/storage";
 
-const firebaseConfig = {
+const config = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_DATABASE_URL,
@@ -13,13 +14,19 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-// if (!firebase.apps.length) {
-//   firebase.initializeApp(config);
-// }
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 
-const firebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
+const classicFirebaseApp = firebase.initializeApp(config);
+const auth = classicFirebaseApp.auth();
+const firestore = classicFirebaseApp.firestore();
+const storage = classicFirebaseApp.storage();
 
-// export default firebase;
+const firebaseConfig = {
+  auth,
+  firestore,
+  storage,
+};
 
-export default db;
+export default firebaseConfig;
