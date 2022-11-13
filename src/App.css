@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;
+500&display=swap");
 * {
   font-family: "Roboto", sans-serif;
 }
 html {
-  background: #1c1d1f;
+  background: #232226;
 }
 .App {
   display: flex;
@@ -17,11 +18,11 @@ html {
   justify-content: space-between;
   padding: 1rem;
   margin-bottom: 1rem;
-  background: #fff;
+  background: #232226;
   align-items: center;
 }
 .App .title-row .title {
-  color: #4c4c4c;
+  color: #f8f8f8;
   font-size: 4rem;
 }
 .App .main {
